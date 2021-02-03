@@ -17,6 +17,7 @@ const article = ({ fact }) => {
 }
 
 export const getStaticProps = async (context) => {
+
   const res = await fetch(`${server}/api/facts/${context.params.id}`)
   const fact = await res.json()
 
