@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Meta from '../../../components/Meta'
 import { server } from '../../../config'
-// import { facts } from '../../../data'
 
 const fact = ({ fact, facts }) => {
   // const router = useRouter()
