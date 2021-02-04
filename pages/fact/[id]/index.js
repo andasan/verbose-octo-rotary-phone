@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Meta from '../../../components/Meta'
 import { server } from '../../../config'
-import { facts } from '../../../data'
+// import { facts } from '../../../data'
 
 const fact = ({ fact, facts }) => {
   // const router = useRouter()
@@ -23,7 +23,7 @@ export const getStaticProps = async (context) => {
   const res = await fetch(`${server}/api/facts/${context.params.id}`)
   const fact = await res.json()
 
-  return { props: { fact, facts } }
+  return { props: { fact } }
 }
 
 export const getStaticPaths = async () => {
