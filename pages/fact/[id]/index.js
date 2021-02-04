@@ -22,7 +22,7 @@ export const getStaticProps = async (context) => {
   const res = await fetch(`${server}/api/facts/${context.params.id}`)
   const fact = await res.json()
 
-  return { props: { fact }, fallback: true }
+  return { props: { fact } }
 }
 
 export const getStaticPaths = async () => {
@@ -33,7 +33,7 @@ export const getStaticPaths = async () => {
 
   const paths = ids.map((id) => ({ params: { id: id.toString() } }))
 
-  return { paths, fallback: true }
+  return { paths, fallback: false }
 }
 
 export default fact
