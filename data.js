@@ -1,4 +1,4 @@
-export const datafacts = [
+export const facts = [
   {
     status: { verified: true, sentCount: 1, feedback: "" },
     type: "cat",
