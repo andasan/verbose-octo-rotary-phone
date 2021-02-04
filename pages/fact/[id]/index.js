@@ -3,7 +3,7 @@ import Meta from '../../../components/Meta'
 import { server } from '../../../config'
 import { useRouter } from 'next/router'
 
-const article = ({ fact }) => {
+const fact = ({ fact }) => {
   // const router = useRouter()
   // const {id} = router.query
   return (
@@ -11,7 +11,8 @@ const article = ({ fact }) => {
       <Meta title={fact.type} />
       <h1>{fact.text}</h1>
       <br />
-      <Link href='/'>Go Back</Link>
+      <Link href='/'>Go Back</Link> 
+      
     </>
   )
 }
@@ -21,7 +22,7 @@ export const getStaticProps = async (context) => {
   const res = await fetch(`${server}/api/facts/${context.params.id}`)
   const fact = await res.json()
 
-  return { props: { fact } }
+  return { props: { fact }, fallback: true }
 }
 
 export const getStaticPaths = async () => {
@@ -32,7 +33,7 @@ export const getStaticPaths = async () => {
 
   const paths = ids.map((id) => ({ params: { id: id.toString() } }))
 
-  return { paths, fallback: false }
+  return { paths, fallback: true }
 }
 
-export default article
+export default fact
